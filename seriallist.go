@@ -19,7 +19,6 @@ type OsSerialPort struct {
 	Product      string
 	IdProduct    string
 	IdVendor     string
-	ISerial      string
 	NetworkPort  bool
 }
 
@@ -44,7 +43,7 @@ func GetList(network bool) ([]OsSerialPort, error) {
 			vidString := fmt.Sprintf("0x%s", vid)
 			pidString := fmt.Sprintf("0x%s", pid)
 			if vid != "0000" && pid != "0000" {
-				arrPorts = append(arrPorts, OsSerialPort{Name: element.Name, IdVendor: vidString, IdProduct: pidString, ISerial: element.SerialNumber})
+				arrPorts = append(arrPorts, OsSerialPort{Name: element.Name, IdVendor: vidString, IdProduct: pidString, SerialNumber: element.SerialNumber})
 			}
 		}
 	}
